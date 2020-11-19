@@ -23,7 +23,7 @@ struct Config {
 
 char _buffer[64];
 
-const char *filename = "/teste.txt";  // <- SD library uses 8.3 filenames
+const char *filename = "/config.txt";  // <- SD library uses 8.3 filenames
 Config config;                         // <- global configuration object
 
 // Loads the configuration from a file
@@ -45,9 +45,9 @@ void loadConfiguration(const char *filename, Config &config) {
     String teste = doc["espName"];
     if (teste == "") {
       config.espName = espId;
-      config.wifiName = "Rita";
-      config.wifiPass = "maltezo4";
-      config.wifiMode = "1";
+      config.wifiName = espId;
+      config.wifiPass = "12345678";
+      config.wifiMode = "0";
     } else {
       config.espName = doc["espName"] | "nome";
       config.wifiName = doc["wifiName"] | "wifi";
@@ -139,10 +139,8 @@ void setup() {
       erro++;
       if (erro == 10) {
         Serial.println("Erro ao conectar ao WiFi, resetando parametros!");
-        config.wifiName = "ESP8266";
-        config.wifiPass = "12345678";
-        config.wifiMode = "0";
-        saveConfiguration(filename, config);
+        SPIFFS.remove(filename);
+        hold(500);
         ESP.reset();
       }
       hold(500);
