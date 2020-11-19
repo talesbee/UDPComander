@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="356.0" xmlns="http://javafx.com/javafx/8.0.211" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visao.WifiEditController">
+   <children>
+      <Label layoutX="75.0" layoutY="8.0" prefHeight="45.0" prefWidth="207.0" text="Configurando o WiFi" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="105.0" text="Wifi Name">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfwifiname" layoutX="171.0" layoutY="103.0" />
+      <Label layoutX="38.0" layoutY="150.0" text="Wifi Password">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfwifipass" layoutX="171.0" layoutY="148.0" />
+      <Button fx:id="btenviarWifi" layoutX="112.0" layoutY="226.0" mnemonicParsing="false" onAction="#configWifi" prefHeight="59.0" prefWidth="134.0" text="Enviar" />
+      <ChoiceBox fx:id="cbModo" layoutX="96.0" layoutY="53.0" prefWidth="150.0" />
+      <Label fx:id="lberro" layoutX="34.0" layoutY="191.0" text="Nenhuma das opções podem estar vazias!" textFill="#eb0000" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lberroSenha" layoutX="60.0" layoutY="191.0" text="Senha deve ser maior que 8 digitos!" textFill="#eb0000" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
