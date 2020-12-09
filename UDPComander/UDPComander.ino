@@ -221,7 +221,7 @@ void enviar(String msg) {
   String sMsgTemp = "PLACA/" + config.espName + "/";
   sMsgTemp += msg;
   sMsgTemp.toCharArray(cstr, 50);
-  udp.beginPacket("255.255.255.255", 8888);
+  udp.beginPacket(udp.remoteIP(), 8888);
   udp.println(cstr);
   udp.endPacket();
   Serial.print("Enviando: "); Serial.println(sMsgTemp);
